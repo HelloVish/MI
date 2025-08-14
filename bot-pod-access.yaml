@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mi
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bot-pod-creator
+  namespace: mi
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: bot-pod-creator-role
+  namespace: mi
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["create", "delete", "get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bot-pod-creator-rolebinding
+  namespace: mi
+subjects:
+  - kind: ServiceAccount
+    name: bot-pod-creator
+    namespace: mi
+roleRef:
+  kind: Role
+  name: bot-pod-creator-role
+  apiGroup: rbac.authorization.k8s.io

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-deployment
+  labels:
+    app: mi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi
+  template:
+    metadata:
+      labels:
+        app: mi
+    spec:
+      containers:
+        - name: mi
+          image: gcr.io/clean-sunspot-456920-t5/mi:abc123def
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: app-secrets
+            - configMapRef:
+                name: app-config
+
+

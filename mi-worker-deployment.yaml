@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-worker
+  namespace: mi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-worker
+  template:
+    metadata:
+      labels:
+        app: mi-worker
+    spec:
+      containers:
+      - name: mi-worker
+        image: 339712743177.dkr.ecr.us-east-1.amazonaws.com/mi-worker:latest
+        command: ["celery", "-A", "mi", "worker", "-l", "INFO"]
+        envFrom:
+        - configMapRef:
+            name: mi-env
+

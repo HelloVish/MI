@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mi-env
+  namespace: mi
+data:
+  POSTGRES_HOST: postgres.c3mykw2kup14.us-east-2.rds.amazonaws.com
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: mi_meetinsights_pg17
+  REDIS_URL: redis://redis:6379
+  DJANGO_SETTINGS_MODULE: mi.settings.development
+  CREDENTIALS_ENCRYPTION_KEY: f_NcznXgj1bQ0QDTQyVonMDgwSoxxpNq7dj_jLP0ICQ=
+  DJANGO_SECRET_KEY: ao#_@bmya3wi3k8d_ltmac#5s30p$eixqwun*7bu7)!m$_q7de
+  AWS_RECORDING_STORAGE_BUCKET_NAME: meetingbot-default-07350729-bot-data
+  AWS_ACCESS_KEY_ID: AKIAU6GDVC4E5NRYQVX5
+  AWS_SECRET_ACCESS_KEY: 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
+  AWS_DEFAULT_REGION: us-east-2
+  LAUNCH_BOT_METHOD: kubernetes
+  CUBER_APP_NAME: mi
+  CUBER_RELEASE_VERSION: abc123def
+  BOT_CPU_REQUEST: 1500m
+  BOT_MEMORY_REQUEST: 1500Mi
+  BOT_EPHEMERAL_STORAGE_REQUEST: 2Gi
+  BOT_MEMORY_LIMIT: 2Gi
+  BOT_EPHEMERAL_STORAGE_LIMIT: 3Gi
+

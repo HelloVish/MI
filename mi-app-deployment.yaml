@@ -1,0 +1,49 @@
+# Create the namespace if not already created
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mi
+---
+# Deployment for mi-app
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-app
+  namespace: mi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+    spec:
+      serviceAccountName: bot-pod-creator  # This must already be created in the "mi" namespace
+      containers:
+        - name: mi-app
+          image: 339712743177.dkr.ecr.us-east-1.amazonaws.com/mi-app:latest
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: mi-env  # This ConfigMap must exist in the "mi" namespace
+          command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+      imagePullSecrets:
+        - name: ecr-secret  # This secret must exist in the "mi" namespace
+---
+# Service to expose the mi-app deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-app-service
+  namespace: mi
+spec:
+  type: LoadBalancer
+  selector:
+    app: mi-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

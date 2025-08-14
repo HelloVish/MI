@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env
+  namespace: mi
+data:
+  DJANGO_SETTINGS_MODULE: "mi.settings.development"
+  BOT_MODE: "true"
+  LOG_LEVEL: "info"
