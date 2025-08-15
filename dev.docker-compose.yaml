@@ -16,8 +16,8 @@ services:
       - CREDENTIALS_ENCRYPTION_KEY=f_NcznXgj1bQ0QDTQyVonMDgwSoxxpNq7dj_jLP0ICQ=
       - DJANGO_SECRET_KEY=ao#_@bmya3wi3k8d_ltmac#5s30p$eixqwun*7bu7)!m$_q7de
       - AWS_RECORDING_STORAGE_BUCKET_NAME=meetingbot-default-07350729-bot-data
-      - AWS_ACCESS_KEY_ID=AKIAU6GDVC4E5NRYQVX5
-      - AWS_SECRET_ACCESS_KEY=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
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
       - AWS_DEFAULT_REGION=us-east-2
       - LAUNCH_BOT_METHOD=kubernetes
       - CUBER_APP_NAME=mi
