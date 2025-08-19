@@ -4,19 +4,19 @@ metadata:
   name: mi-env
   namespace: mi
 data:
-  POSTGRES_HOST: postgres.c3mykw2kup14.us-east-2.rds.amazonaws.com
+  POSTGRES_HOST: postgres.cn0sscwuus6r.ap-south-1.rds.amazonaws.com
   POSTGRES_PORT: "5432"
   POSTGRES_DB: postgres
   POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: mi_meetinsights_pg17
+  POSTGRES_PASSWORD: wEPgNWjOMtBeP65VOdGb
   REDIS_URL: redis://redis:6379
   DJANGO_SETTINGS_MODULE: mi.settings.development
   CREDENTIALS_ENCRYPTION_KEY: f_NcznXgj1bQ0QDTQyVonMDgwSoxxpNq7dj_jLP0ICQ=
   DJANGO_SECRET_KEY: ao#_@bmya3wi3k8d_ltmac#5s30p$eixqwun*7bu7)!m$_q7de
   AWS_RECORDING_STORAGE_BUCKET_NAME: meetingbot-default-07350729-bot-data
-  AWS_ACCESS_KEY_ID: 
-  AWS_SECRET_ACCESS_KEY: 
-  AWS_DEFAULT_REGION: us-east-2
+  AWS_ACCESS_KEY_ID: AKIAXPM5OSY5TEHIUHNA
+  AWS_SECRET_ACCESS_KEY: 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 
+  AWS_DEFAULT_REGION: ap-south-1
   LAUNCH_BOT_METHOD: kubernetes
   CUBER_APP_NAME: mi
   CUBER_RELEASE_VERSION: abc123def

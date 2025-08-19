@@ -12,6 +12,52 @@ docker buildx build --platform linux/amd64 -t gcr.io/clean-sunspot-456920-t5/mi:
 ```bash
 docker compose -f dev.docker-compose.yaml build
 docker compose -f dev.docker-compose.yaml up
+# Run locally first
+docker compose -f dev.docker-compose.yaml up
+docker compose -f dev.docker-compose.yaml exec mi-app-local python manage.py shell
+
+# Create organization, project, user, API key (same commands from README)
+from accounts.models import *
+from bots.models import *
+import hashlib
+from django.utils.crypto import get_random_string
+
+default_org = Organization.objects.create(name="poc@meetinsights.in's organization")
+project = Project.objects.create(name="MI Project", organization=default_org)
+user = User.objects.create_superuser(
+    email="poc@meetinsights.in",
+    password="12345678",
+    username="poc@meetinsights.in", 
+    organization=default_org
+)
+
+api_key = get_random_string(length=32)
+key_hash = hashlib.sha256(api_key.encode()).hexdigest()
+api_instance = ApiKey.objects.create(project=project, name='cars24', key_hash=key_hash)
+print("✅ API Key:", api_key)
+# Run locally first
+docker compose -f dev.docker-compose.yaml up
+docker compose -f dev.docker-compose.yaml exec mi-app-local python manage.py shell
+
+# Create organization, project, user, API key (same commands from README)
+from accounts.models import *
+from bots.models import *
+import hashlib
+from django.utils.crypto import get_random_string
+
+default_org = Organization.objects.create(name="poc@meetinsights.in's organization")
+project = Project.objects.create(name="MI Project", organization=default_org)
+user = User.objects.create_superuser(
+    email="poc@meetinsights.in",
+    password="12345678",
+    username="poc@meetinsights.in", 
+    organization=default_org
+)
+
+api_key = get_random_string(length=32)
+key_hash = hashlib.sha256(api_key.encode()).hexdigest()
+api_instance = ApiKey.objects.create(project=project, name='cars24', key_hash=key_hash)
+print("✅ API Key:", api_key)
 docker compose -f dev.docker-compose.yaml exec mi-app-local python manage.py migrate
 ```
 # Guideline: 🚀 MeetInsights Django Backend Setup

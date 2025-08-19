@@ -81,9 +81,7 @@ def validate_meeting_url_and_credentials(meeting_url, project):
     if meeting_type_from_url(meeting_url) == MeetingTypes.ZOOM:
         zoom_credentials = project.credentials.filter(credential_type=Credentials.CredentialTypes.ZOOM_OAUTH).first()
         if not zoom_credentials:
-            relative_url = reverse("bots:project-credentials", kwargs={"object_id": project.object_id})
-            settings_url = f"https://{os.getenv('SITE_DOMAIN', 'meetinsights.in')}{relative_url}"
-            return {"error": f"Zoom App credentials are required to create a Zoom bot. Please Contact Admin for Zoom credentials at {settings_url}"}
+            return {"error": "Zoom App credentials are required to create a Zoom bot. Please contact admin for Zoom credentials."}
 
     return None
 
