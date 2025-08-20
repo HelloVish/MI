@@ -19,7 +19,7 @@ class BotPodCreator:
         if not self.app_version:
             raise ValueError("CUBER_RELEASE_VERSION environment variable is required")
         self.app_instance = f"{self.app_name}-{self.app_version.split('-')[-1]}"
-        self.image = "339712743177.dkr.ecr.us-east-1.amazonaws.com/mi-app:latest"
+        self.image = "514115671611.dkr.ecr.ap-south-1.amazonaws.com/mi-app:latest"
 
         # Validate and store resource limits and requests
         self.resources = self._get_resource_limits()

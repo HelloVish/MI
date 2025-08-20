@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mi-worker
-        image: 339712743177.dkr.ecr.us-east-1.amazonaws.com/mi-worker:latest
+        image: 514115671611.dkr.ecr.ap-south-1.amazonaws.com/mi-worker:latest
         command: ["celery", "-A", "mi", "worker", "-l", "INFO"]
         envFrom:
         - configMapRef:

@@ -23,7 +23,7 @@ spec:
       serviceAccountName: bot-pod-creator  # This must already be created in the "mi" namespace
       containers:
         - name: mi-app
-          image: 339712743177.dkr.ecr.us-east-1.amazonaws.com/mi-app:latest
+          image: 514115671611.dkr.ecr.ap-south-1.amazonaws.com/mi-app:latest
           ports:
             - containerPort: 8000
           envFrom:

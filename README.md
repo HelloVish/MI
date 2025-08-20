@@ -11,7 +11,7 @@ docker buildx build --platform linux/amd64 -t gcr.io/clean-sunspot-456920-t5/mi:
 # For Local Setup
 ```bash
 docker compose -f dev.docker-compose.yaml build
-docker compose -f dev.docker-compose.yaml up
+docker compose -f dev.docker-compose.yaml up -d
 # Run locally first
 docker compose -f dev.docker-compose.yaml up
 docker compose -f dev.docker-compose.yaml exec mi-app-local python manage.py shell
